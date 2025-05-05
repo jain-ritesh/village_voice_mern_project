@@ -29,7 +29,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/api/auth/register', formData);
+      const res = await axios.post('https://village-voice.onrender.com/api/auth/register', formData);
       toast.success('Registered Successfully ✅');
       setFormData({
         name: "",

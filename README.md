@@ -20,4 +20,26 @@ Village Voice is a community-driven platform designed to empower rural citizens 
 - **Email Service**: Nodemailer for sending emails
 - **State Management**: React Context API
 
-## Folder Structure
+
+## 📂 Project Structure
+
+```bash
+village_voice_mern_project/
+│
+├── client/                 # React frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── context/        # Auth & global context
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── index.js
+│   └── public/
+│
+├── server/                 # Node + Express backend
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   ├── config/
+│   └── server.js
+│
+└── README.md

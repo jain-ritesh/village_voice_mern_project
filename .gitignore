@@ -1,0 +1,16 @@
+# Ignore all node_modules folders (both frontend and backend)
+**/node_modules/
+
+# Ignore all .env files (both frontend and backend)
+**/.env
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+
+# Optional: Ignore build/dist folders
+**/build/
+**/dist/

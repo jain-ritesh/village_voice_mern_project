@@ -10,7 +10,7 @@ connectDB();
 
 const app = express();
 app.use(cors({
-    origin: "http://localhost:5173", // React frontend ka URL
+    origin: "https://village-voice-frontend.onrender.com", // React frontend ka URL
     credentials: true, 
 }));
 app.use(express.json());

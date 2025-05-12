@@ -21,7 +21,7 @@ const Login = () => {
     // localStorage.setItem('userName',JSON.stringify(formData));
 
     try {
-      const res = await axios.post("http://localhost:3000/api/auth/login", formData);
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, formData);
 
       // Save token and user role in localStorage
       localStorage.setItem("token", res.data.token);

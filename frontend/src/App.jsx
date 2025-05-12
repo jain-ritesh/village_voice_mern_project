@@ -23,7 +23,7 @@ const App = () => {
       <Router>
         <ToastContainer />
         <Routes>
-
+        <Route path="*" element={<NotFound />} />
           {/* Pages without layout */}
           <Route path="/" element={<Register />} />
           <Route path="/login" element={<Login />} />

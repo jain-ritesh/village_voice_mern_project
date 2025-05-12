@@ -20,7 +20,7 @@ const ContactUs = () => {
     }
     try{
      
-      let res = await axios.post('http://localhost:3000/api/auth/send-email',contactData)
+      let res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/send-email`,contactData)
       // localStorage.setItem('UserData', JSON.stringify(contactData));
       // alert('Thank you for contacting us! ✉️');
       toast.success('Thank you for contacting us!');

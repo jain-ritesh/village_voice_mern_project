@@ -13,11 +13,11 @@ export const UserProvider = ({children})=>{
     try{
 
       // get user Data
-      let userResponse = await axios.get('http://localhost:3000/api/auth/user');
+      let userResponse = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/auth/user`);
       setUser(userResponse.data.data);
       
       // get suggetion data
-      let suggestionResponse = await axios.get('http://localhost:3000/api/auth/suggestion');
+      let suggestionResponse = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/auth/suggestion`);
       
       if(!suggestionResponse){
         console.log('Sugesstion Data is not comming!', suggestionResponse)
@@ -25,7 +25,7 @@ export const UserProvider = ({children})=>{
       setSuggestion(suggestionResponse.data.data);
 
       // get Contact Data
-      let contactResponse = await axios.get('http://localhost:3000/api/auth/get-contact-data');
+      let contactResponse = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/auth/get-contact-data`);
       if(!contactResponse){
         console.log('Contat Response is not comming!');
       }

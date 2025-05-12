@@ -20,7 +20,7 @@ const SuggetionForm = () => {
       toast.error('Please Fill All Fileds!')
     }
     try{
-      let res = axios.post('http://localhost:3000/api/auth/suggetion-form',formData);
+      let res = axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/suggetion-form`,formData);
       toast.success(" Suggestion Submitted Successfully!");
 
       setFormData({

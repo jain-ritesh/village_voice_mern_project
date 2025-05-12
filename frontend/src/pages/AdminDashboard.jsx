@@ -21,7 +21,7 @@ const AdminDashboard = () => {
       let confirmMess = confirm('You Want To Delete The Suggetion');
       if(!confirmMess) return;
 
-      let res = await axios.delete(`http://localhost:3000/api/auth/suggestions/${id}`);
+      let res = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/auth/suggestions/${id}`);
       if(res.data.success){
         toast.success("User Deleted Successfully.")
         setSuggestion((prevSuggestions) => prevSuggestions.filter((item) => item._id !== id));
@@ -194,7 +194,6 @@ const AdminDashboard = () => {
             </table>
           </div>
         </section>
-
 
       </main>
       <ToastContainer position="top-right" autoClose={3000} />

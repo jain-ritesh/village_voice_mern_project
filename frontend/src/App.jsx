@@ -16,12 +16,14 @@ import ContactUs from './components/ui/ContactUs.jsx';
 import AboutUs from './components/ui/AboutUs.jsx';
 import NotFound from './pages/NotFound.jsx';
 import MainLayout from './pages/Layout.jsx'; // ⬅️ import layout
+import ChatBot from './pages/ChatBot.jsx';
 
 const App = () => {
   return (
     <UserProvider>
       <Router>
         <ToastContainer />
+        <ChatBot />
         <Routes>
         <Route path="*" element={<NotFound />} />
           {/* Pages without layout */}
@@ -51,6 +53,7 @@ const App = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/term-condition" element={<TermsAndConditions />} />
             <Route path="/not-found" element={<NotFound />} />
+            {/* <Route path="/chatbot" element={<ChatBot />} /> */}
           </Route>
 
         </Routes>

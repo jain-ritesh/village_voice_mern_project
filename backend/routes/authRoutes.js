@@ -1,7 +1,8 @@
 import express from 'express';
-import {register, loginUser,submitUserSuggestion, sendEmail, deleteSuggetion} from '../controller/authController.js';
+import {register, loginUser,submitUserSuggestion, sendEmail, deleteSuggetion, chatBoat} from '../controller/authController.js';
 import { isAdmin,authmMiddleware } from '../middleware/authMiddleware.js';
 import { getContactData, getSuggestionData, getUserData } from '../controller/getUserData.js';
+// import ChatBot from '../../frontend/src/pages/ChatBot.jsx';
 // import AdminDashboard from '../../frontend/src/pages/AdminDashboard.jsx';
 
 const router = express.Router();
@@ -9,6 +10,8 @@ const router = express.Router();
 router.post('/register', register);
 
 router.post('/login',loginUser);
+
+router.post('/chatbot',chatBoat);
 
 router.get('/home',authmMiddleware,isAdmin,(req,res)=>{
     if(req.user.role === 'admin'){

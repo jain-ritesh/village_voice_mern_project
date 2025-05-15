@@ -17,9 +17,9 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 
-app.use((req,res)=>{
-     return res.status(404).sendFile(path.join())
-})
+// app.use((req,res)=>{
+//      return res.status(404).sendFile(path.join())
+// })
 // app.get('/sample',(req,res)=>{
 //     res.send("Ptogram is working fine")
 // })

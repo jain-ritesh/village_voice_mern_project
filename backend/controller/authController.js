@@ -5,8 +5,10 @@ import e, { text } from "express";
 import jwt from 'jsonwebtoken';
 import mongoose from "mongoose";
 import nodemailer from 'nodemailer';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+// import ChatBot from "../../frontend/src/pages/ChatBot.jsx";
 
-
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // registration 
 export const register = async (req, res) => {
@@ -217,6 +219,44 @@ export const sendEmail = async (req, res) => {
         })
     }
 }
+
+
+export const chatBoat = async (req, res) => {
+    const { message } = req.body;
+
+  if (!message) {
+    return res.status(400).json({ error: 'Message is required' });
+  }
+
+  try {
+    const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-flash' });
+
+    const chat = model.startChat({
+      history: [],
+      generationConfig: { maxOutputTokens: 150 },
+    });
+
+    const result = await chat.sendMessage(message);
+    const response = result.response;
+    const text = response.text();
+
+    res.status(200).json({ reply: text });
+  } catch (error) {
+    console.error('Gemini Error:', error?.response?.data || error.message || error);
+    res.status(500).json({ error: 'Failed to get response from Gemini' });
+  }
+};
+// Add this function and call it once to see available models
+const listModels = async () => {
+  try {
+    const models = await genAI.listModels();
+    console.log('Available Gemini Models:', models);
+  } catch (err) {
+    console.error('Error listing models:', err);
+  }
+};
+// Call this function once when your server starts
+listModels();
 
 
 export const deleteSuggetion = async(req,res)=>{

@@ -13,6 +13,7 @@ const AdminDashboard = () => {
 
   const { suggestion,setSuggestion, user, contact } = useContext(UserContext);
   const [userName, setUserName] = useState('')
+  
   // console.log("Suggetions: ",suggestion)
   // console.log("Contact:  ", contact)
 
@@ -87,10 +88,17 @@ const AdminDashboard = () => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-8 overflow-auto space-y-8 ">
-        <header className="mb-6">
+      <main className="flex-1 p-8 overflow-auto space-y-8  ">
+        <header className="mb-6 flex justify-between ">
+          <div >
+
           <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
           <p className="text-gray-500  mt-1 text-2xl">👋 Hello <span className="text-red-500 font-semibold">{userName}</span></p>
+          </div>
+
+           <a href="/"><button 
+           className='bg-red-500 rounded-md p-2 m-auto font-semibold text-white hover:bg-green-500' >LogOut
+          </button></a>
         </header>
 
         {/* Dashboard Overview Cards */}
@@ -120,10 +128,11 @@ const AdminDashboard = () => {
         </section>
 
         {/* User Data  */}
-        <section className="shadow-lg p-4  bg-white rounded-lg overflow-x-auto">
+        <section className="shadow-lg p-4 bg-white rounded-lg overflow-x-auto">
           <div className="min-w-full">
             <h3 className='p-4 font-semibold text-lg bg-white border-b'>Users Suggetions</h3>
-            <table className="w-full text-center table-auto border-collapse">
+         <div className='max-h-[350px] overflow-y-auto'>
+            <table className="w-full  text-center table-auto border-collapse">
               <thead>
                 <tr className="bg-gray-200 text-gray-700 text-sm md:text-base">
                   <th className='border px-4 py-3'>Sr.No</th>
@@ -155,6 +164,7 @@ const AdminDashboard = () => {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </section>
 
@@ -163,7 +173,7 @@ const AdminDashboard = () => {
         <section className='pt-6 overflow-x-auto bg-white rounded-lg shadow-md'>
           <div className='min-w-full'>
             <h2 className='p-4 font-semibold text-lg bg-white border-b'>Users Contact Data</h2>
-
+   <div className='max-h-[350px] overflow-y-auto'>
             <table className='min-w-full text-sm md:text-base text-center border-collapse'>
               <thead>
                 <tr className='bg-red-400 text-white'>
@@ -192,6 +202,7 @@ const AdminDashboard = () => {
                 }
               </tbody>
             </table>
+            </div>
           </div>
         </section>
 

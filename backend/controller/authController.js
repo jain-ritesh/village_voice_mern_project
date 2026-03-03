@@ -229,7 +229,8 @@ export const chatBoat = async (req, res) => {
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-flash' });
+    const modelName = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
+    const model = genAI.getGenerativeModel({ model: modelName });
 
     const chat = model.startChat({
       history: [],
@@ -246,19 +247,6 @@ export const chatBoat = async (req, res) => {
     res.status(500).json({ error: 'Failed to get response from Gemini' });
   }
 };
-// Add this function and call it once to see available models
-const listModels = async () => {
-  try {
-    const models = await genAI.listModels();
-    console.log('Available Gemini Models:', models);
-  } catch (err) {
-    console.error('Error listing models:', err);
-  }
-};
-// Call this function once when your server starts
-listModels();
-
-
 export const deleteSuggetion = async(req,res)=>{
     console.log(req.params)
     try{
